@@ -1,0 +1,36 @@
+#!/usr/bin/env Rscript
+
+library("argparse")
+library("dockertemplate")
+
+
+# Setup command line arguments
+parser <- ArgumentParser()
+parser$add_argument(
+  "-v", "--verbose", action="store_true", default=FALSE,
+  help="Print extra output [False]"
+)
+parser$add_argument(
+  "-ni", "--say-ni", action="store_true", default=FALSE,
+  help="Say Ni to you [False]"
+)
+
+
+args <- parser$parse_args()
+
+if (args$say_ni) {
+  write("Ni! Ni! Ni!", stdout())
+} else {
+  # Here we actually use a function from our package.  Generally, you want to
+  # put the core of your work in the package and use these scripts to implement
+  # the command line interface.
+
+  write(dockertemplate::hello(), stdout())
+}
+
+if (args$verbose) {
+  write("Bring me a shrubbery!", stdout())
+  write("One that looks nice ...", stdout())
+  write("And not too expensive!", stdout())
+}
+
