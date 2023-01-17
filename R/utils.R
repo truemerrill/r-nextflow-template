@@ -1,5 +1,4 @@
 
-
 #' Add one to the input argument
 #'
 #' @param x input argument
