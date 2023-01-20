@@ -7,11 +7,14 @@
 # To get a newer version, you will need to update the SHA.
 # You can also reference a tag or branch, but the action may change without warning.
 
-name: Create and publish a Docker image
+name: Docker image
 
+# Only run when the Check workflow passes
 on:
-  push:
-    branches: ['main']
+  workflow_run:
+    workflows: ["Check"]
+    types:
+      - compleded
 
 env:
   REGISTRY: ghcr.io
