@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
 
 library("argparse")
-library("dockertemplate")
+library("NextflowTemplate")
 
 
 # Setup command line arguments
@@ -25,7 +25,7 @@ if (args$say_ni) {
   # put the core of your work in the package and use these scripts to implement
   # the command line interface.
 
-  write(dockertemplate::hello(), stdout())
+  write(NextflowTemplate::hello(), stdout())
 }
 
 if (args$verbose) {
