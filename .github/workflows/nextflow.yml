@@ -13,8 +13,7 @@ name: Nextflow
 on:
   workflow_run:
     workflows: [Docker]
-    types:
-      - compleded
+    types: [completed]
 
 jobs:
   nextflow:
