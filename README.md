@@ -12,18 +12,13 @@ _Features_:
 * R code is organized into a valid [R package](https://r-pkgs.org/).
   Users are able to directly install this package into their local R
   environments using `devtools::install_github(https://github.com/foosa/r-nextflow-template)`.
-
 * R code is documented using `roxygen2` and unit tested using `testthat`.
-
 * R code uses the modern [tidyverse](https://www.tidyverse.org/) coding standards.
-
 * Github actions are used to build R documentation, perform unit tests, calculate
   test coverage, build a docker image, and publish the docker image to 
   [ghcr.io](https://github.com/users/foosa/packages/container/package/r-nextflow-template).
-
 * We show an example of how to package an Rscript and to symbolically link
   the script to the `PATH` inside the docker container.
-
 * We provide an example Nextflow workflow and configuration file to show how to
   build a Nextflow pipeline which executes a process using the published docker
   container.
@@ -131,14 +126,14 @@ your code for review.  To manually build the documentation, execute the
 following inside an R session:
 
 ```R
-> devtools::document() 
+devtools::document() 
 ```
 
 You will see something like this:
 
 ```
-ℹ Updating dockertemplate documentation
-ℹ Loading dockertemplate
+ℹ Updating NextflowTemplate documentation
+ℹ Loading NextflowTemplate
 Writing NAMESPACE
 Writing NAMESPACE
 Writing hello.Rd
@@ -167,13 +162,20 @@ following guidelines when building your unit test suite:
 To manually run the test suite, execute the following inside an R session:
 
 ```R
-> devtools::test()
+devtools::test()
 ```
 
 You should see something like this:
 
 ```
-ℹ Testing dockertemplate
+ℹ Testing NextflowTemplate
+
+Attaching package: ‘testthat’
+
+The following object is masked from ‘package:devtools’:
+
+    test_file
+
 ✔ | F W S  OK | Context
 ✔ |         1 | hello
 ✔ |         5 | utils
@@ -197,10 +199,16 @@ To manually run the linter, execute the following inside an R session from the
 package root directory:
 
 ```R
-> library(lintr)
-> lint_package()
+devtools::lint()
 ```
 
-You may find it easier to integrate the linter into your IDE such as RStudio or
-VSCode.  Please consult your IDE's documentation on how to integrate `lintr`.
+You should see something like this:
 
+```
+ℹ Linting NextflowTemplate
+.....
+```
+
+You should correct any linting errors that you see in your code.  You may find
+it easier to integrate the linter into your IDE such as RStudio or VSCode.
+Please consult your IDE's documentation on how to integrate linting.
