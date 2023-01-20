@@ -5,3 +5,7 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^Dockerfile$
+.*nextflow 
+^.*.nf$
+^work$
+
