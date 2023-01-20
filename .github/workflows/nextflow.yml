@@ -12,7 +12,7 @@ name: Nextflow
 # Only run when the Check workflow passes
 on:
   workflow_run:
-    workflows: ["Docker image"]
+    workflows: [Docker]
     types:
       - compleded
 

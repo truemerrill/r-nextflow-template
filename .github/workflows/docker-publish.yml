@@ -7,12 +7,12 @@
 # To get a newer version, you will need to update the SHA.
 # You can also reference a tag or branch, but the action may change without warning.
 
-name: Docker image
+name: Docker
 
 # Only run when the Check workflow passes
 on:
   workflow_run:
-    workflows: ["Check"]
+    workflows: [Check]
     types:
       - compleded
 
