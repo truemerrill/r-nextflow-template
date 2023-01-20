@@ -26,6 +26,9 @@ jobs:
       
       - name: Install java
         uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
       
       - name: Install nextflow
         run: curl -s https://get.nextflow.io | bash
