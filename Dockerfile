@@ -1,31 +1,15 @@
-FROM r-base:latest
-MAINTAINER True Merrill true.merrill@gtri.gatech.edu
+FROM ghcr.io/foosa/r-devtools:main
 
+ARG PROJECT_NAME=r-nextflow-template
+ARG LIBRARY_NAME=rnextflowtemplate
 
-# Install libraries required to build R packages
-RUN apt-get update \
-  && apt-get install -y --no-install-recommends \
-    libcurl4-openssl-dev \
-    libfontconfig1-dev \
-    libfreetype6-dev \
-    libfribidi-dev \
-    libharfbuzz-dev \
-    libjpeg-dev \
-    libpng-dev \
-    libssl-dev \
-    libtiff5-dev \
-    libxml2-dev \
-  && rm -rf /var/lib/apt/lists/*
+# Copy the R sourcecode and install locally
+COPY . /opt/src/$PROJECT_NAME
+RUN Rscript -e "\
+  library(devtools) \
+  devtools::install_local(\"/opt/src/$PROJECT_NAME\")
+  "
 
-
-# Install development packages for R
-RUN Rscript -e "install.packages(c( \
-    'covr', \
-    'devtools', \
-    'DT', \
-    'knitr', \
-    'lintr', \
-    'roxygen2', \
-    'testthat' \
-  ))"
-
+# Ammend the PATH so that the executable is available to the interpreter.  If your project
+# doesn't have a script in inst/bin go ahead and remove this part.
+ENV PATH="$PATH:/usr/local/lib/R/site-library/$LIBRARY_NAME/bin"
