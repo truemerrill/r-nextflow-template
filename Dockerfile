@@ -1,4 +1,4 @@
-FROM ghcr.io/foosa/r-devtools:main
+FROM ghcr.io/truemerrill/r-devtools:main
 
 # Name of the project
 ARG PROJECT_NAME=r-nextflow-template
