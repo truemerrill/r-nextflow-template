@@ -4,6 +4,7 @@
 ![](https://github.com/foosa/r-nextflow-template/actions/workflows/document.yaml/badge.svg)
 ![](https://github.com/foosa/r-nextflow-template/actions/workflows/lint.yaml/badge.svg)
 ![](https://github.com/foosa/r-nextflow-template/actions/workflows/docker-publish.yml/badge.svg)
+![](https://github.com/foosa/r-nextflow-template/actions/workflows/nextflow.yml/badge.svg)
 
 [Nextflow](https://www.nextflow.io/) is a batch processing framework commonly
 used in bioinformatics.  One important feature of Nextflow is the ability to 
